@@ -1,2 +1,2 @@
 # junbangg.github.io
-My Portfolio!!
+Portfolio 
