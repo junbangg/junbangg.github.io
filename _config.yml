@@ -105,7 +105,7 @@ author:
   name             : "aladdin"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "양탄자 찾는중"
-  location         : "Somewhere"
+  location         : "disneyland"
   email            :
   links:
     - label: "Email"
@@ -138,7 +138,7 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
+      url: "https://github.com/junbangg"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
@@ -280,11 +280,11 @@ defaults:
   # _posts
   - scope:
       path: ""
-      type: posts
+      type: pages
     values:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
+      comments: true
       share: true
       related: true
