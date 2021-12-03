@@ -296,8 +296,41 @@ defaults:
       layout: single
       author_profile: false
       share: true
+  # _algorithms
+  - scope:
+      path: ""
+      type: algorithms
+    values:
+      layout: single
+      author_profile: false
+      share: true
+  # _os
+  - scope:
+      path: ""
+      type: os
+    values:
+      layout: single
+      author_profile: false
+      share: true
+  # _networking
+  - scope:
+      path: ""
+      type: networking
+    values:
+      layout: single
+      author_profile: false
+      share: true
 
 collections:
   iOS:
+    output: true
+    permalink: /:collection/:path/
+  Algorithms:
+    output: true
+    permalink: /:collection/:path/
+  OS:
+    output: true
+    permalink: /:collection/:path/
+  Networking:
     output: true
     permalink: /:collection/:path/

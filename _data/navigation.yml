@@ -4,9 +4,15 @@ main:
     # url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   - title: "About"
     url: https://junbangg.github.io/
-  - title: "Posts"
-    url: /categories/
-  - title: "Collections"
+  - title: "iOS"
     url: /iOS/
+  - title: "Algorithms"
+    url: /algorithms/
+  - title: "OS"
+    url: /os/
+  - title: "Networking"
+    url: /networking/
+  - title: "Tags"
+    url: /tags/
   # - title: "Sitemap"
   #   url: /sitemap/
