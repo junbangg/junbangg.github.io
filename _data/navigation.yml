@@ -7,6 +7,6 @@ main:
   - title: "Posts"
     url: /categories/
   - title: "Collections"
-    url: /portfolio/
+    url: /iOS/
   # - title: "Sitemap"
   #   url: /sitemap/
