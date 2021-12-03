@@ -296,26 +296,26 @@ defaults:
       layout: single
       author_profile: false
       share: true
-  # _Algorithms
+  # _algorithms
   - scope:
       path: ""
-      type: Algorithms
+      type: algorithms
     values:
       layout: single
       author_profile: false
       share: true
-  # _OS
+  # _os
   - scope:
       path: ""
-      type: OS
+      type: os
     values:
       layout: single
       author_profile: false
       share: true
-  # _Networking
+  # _networking
   - scope:
       path: ""
-      type: Networking
+      type: networking
     values:
       layout: single
       author_profile: false
@@ -325,12 +325,12 @@ collections:
   iOS:
     output: true
     permalink: /:collection/:path/
-  Algorithms:
+  algorithms:
     output: true
     permalink: /:collection/:path/
-  Os:
+  os:
     output: true
     permalink: /:collection/:path/
-  Networking:
+  networking:
     output: true
     permalink: /:collection/:path/

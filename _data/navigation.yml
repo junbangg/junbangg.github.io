@@ -7,11 +7,11 @@ main:
   - title: "iOS"
     url: /iOS/
   - title: "Algorithms"
-    url: /Algorithms/
+    url: /algorithms/
   - title: "OS"
-    url: /OS/
+    url: /os/
   - title: "Networking"
-    url: /Networking/
+    url: /networking/
   - title: "Tags"
     url: /tags/
   # - title: "Sitemap"
