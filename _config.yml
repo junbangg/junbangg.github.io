@@ -172,7 +172,9 @@ exclude:
   - tmp
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
+  # 잠시 숨기기
   - _posts/algorithm/coding-test/programmers
+  - _posts/algorithm/study
 keep_files:
   - .git
   - .svn
