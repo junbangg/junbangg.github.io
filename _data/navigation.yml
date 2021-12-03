@@ -5,8 +5,8 @@ main:
   - title: "About"
     url: https://junbangg.github.io/
   - title: "Posts"
-    url: /year-archive/
+    url: /categories/
   - title: "Collections"
-    url: /collection-archive/
+    url: /portfolio/
   # - title: "Sitemap"
   #   url: /sitemap/
