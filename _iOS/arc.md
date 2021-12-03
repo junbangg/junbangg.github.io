@@ -3,8 +3,8 @@ toc: true
 toc_sticky: true
 title: "ARC"
 exerpt: "Automatic Reference Counting"
-categories: Swift
-tags: Swift
+categories: iOS
+tags: iOS
 date: 2021-12-3 15:00:00
 ---
 
