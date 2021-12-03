@@ -54,7 +54,7 @@ print(reversedWord)
 ![Screen Shot 2021-12-04 at 1 04 55 AM](https://user-images.githubusercontent.com/33091784/144637809-55c81e8e-ae71-4399-86c3-0dffbe1bb583.png)
 
 
-내가 이해한게 맞다면, 결론적으로 봤을때 `**reversed` 는 새로운 배열을 만들지도 않고, 사실 뒤집지도 않는다.**
+내가 이해한게 맞다면, 결론적으로 봤을때 **`reversed` 는 새로운 배열을 만들지도 않고, 사실 뒤집지도 않는다.**
 
 즉, `reversed` 를 사용하면, 해당 배열을 `ReversedCollection` 이라는 구조체로 `wrapping` 을 한다.
 
