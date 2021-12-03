@@ -298,6 +298,6 @@ defaults:
       share: true
 
 collections:
-  portfolio:
+  iOS:
     output: true
     permalink: /:collection/:path/
