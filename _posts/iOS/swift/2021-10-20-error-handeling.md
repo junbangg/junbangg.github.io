@@ -1,5 +1,5 @@
 ---
-title: "Error Handeling"
+title: "Error Handling"
 
 categories:
   - swift
