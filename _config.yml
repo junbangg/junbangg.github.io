@@ -296,10 +296,10 @@ defaults:
       layout: single
       author_profile: false
       share: true
-  # _algorithms
+  # _ps
   - scope:
       path: ""
-      type: algorithms
+      type: ps
     values:
       layout: single
       author_profile: false
@@ -325,7 +325,7 @@ collections:
   iOS:
     output: true
     permalink: /:collection/:path/
-  algorithms:
+  ps:
     output: true
     permalink: /:collection/:path/
   os:

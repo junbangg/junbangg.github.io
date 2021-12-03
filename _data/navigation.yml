@@ -6,8 +6,8 @@ main:
     url: https://junbangg.github.io/
   - title: "iOS"
     url: /iOS/
-  - title: "Algorithms"
-    url: /algorithms/
+  - title: "PS"
+    url: /ps/
   - title: "OS"
     url: /os/
   - title: "Networking"
