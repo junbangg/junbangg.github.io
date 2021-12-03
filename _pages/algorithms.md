@@ -2,7 +2,7 @@
 title: Algorithms
 layout: collection
 permalink: /algorithms/
-collection: Algorithms
+collection: algorithms
 entries_layout: grid
 classes: wide
 ---

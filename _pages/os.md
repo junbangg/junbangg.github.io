@@ -2,7 +2,7 @@
 title: OS
 layout: collection
 permalink: /os/
-collection: OS
+collection: os
 entries_layout: grid
 classes: wide
 ---
