@@ -1,8 +1,9 @@
 ---
-title: Portfolio
+title: iOS
 layout: collection
-permalink: /portfolio/
-collection: portfolio
+permalink: /iOS/
+collection: iOS
 entries_layout: grid
 classes: wide
 ---
+
