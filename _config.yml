@@ -175,6 +175,7 @@ exclude:
   # 잠시 숨기기
   - _posts/algorithm/coding-test/programmers
   - _posts/algorithm/study
+  - _posts/Git
 keep_files:
   - .git
   - .svn
