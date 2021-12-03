@@ -1,8 +1,8 @@
 ---
 title: Networking
 layout: collection
-permalink: /networking/
-collection: networking
+permalink: /Networking/
+collection: Networking
 entries_layout: grid
 classes: wide
 ---

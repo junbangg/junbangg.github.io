@@ -1,8 +1,8 @@
 ---
 title: OS
 layout: collection
-permalink: /os/
-collection: os
+permalink: /OS/
+collection: OS
 entries_layout: grid
 classes: wide
 ---

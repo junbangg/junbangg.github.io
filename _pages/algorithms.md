@@ -1,8 +1,8 @@
 ---
 title: Algorithms
 layout: collection
-permalink: /algorithms/
-collection: algorithms
+permalink: /Algorithms/
+collection: Algorithms
 entries_layout: grid
 classes: wide
 ---
