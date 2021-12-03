@@ -46,11 +46,11 @@ print(reversedWord)
 
 그래서 공식문서를 조금 더 자세하게 보니까
 
-![Screen Shot 2021-12-04 at 1.02.39 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9d4329ca-f04f-4301-bdaf-1f971edf37e1/Screen_Shot_2021-12-04_at_1.02.39_AM.png)
+![image](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9d4329ca-f04f-4301-bdaf-1f971edf37e1/Screen_Shot_2021-12-04_at_1.02.39_AM.png)
 
 `ReversedCollection` 이라는 `Generic Struct` 이 생성된다.
 
-![Screen Shot 2021-12-04 at 1.04.55 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b9fa033d-c5ee-4237-818a-6568eadbad6b/Screen_Shot_2021-12-04_at_1.04.55_AM.png)
+![image](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b9fa033d-c5ee-4237-818a-6568eadbad6b/Screen_Shot_2021-12-04_at_1.04.55_AM.png)
 
 내가 이해한게 맞다면, 결론적으로 봤을때 `**reversed` 는 새로운 배열을 만들지도 않고, 사실 뒤집지도 않는다.**
 
