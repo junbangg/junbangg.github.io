@@ -8,7 +8,7 @@ tags: iOS
 date: 2021-12-3 15:00:00
 ---
 
-## NotificationCenter 로 데이터 전달 하는 방법
+## NotificationCenter
 
 특정 `Event` 가 발생했을때 `NotificationCenter` 한테 `post` 를 이용해서 `Notification` 을 전달하는것을 배웠었다.
 
