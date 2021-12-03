@@ -288,49 +288,19 @@ defaults:
       comments: true
       share: true
       related: true
-  # _iOS
-  - scope:
-      path: ""
-      type: iOS
-    values:
-      layout: single
-      author_profile: false
-      share: true
-  # _ps
-  - scope:
-      path: ""
-      type: ps
-    values:
-      layout: single
-      author_profile: false
-      share: true
-  # _os
-  - scope:
-      path: ""
-      type: os
-    values:
-      layout: single
-      author_profile: false
-      share: true
-  # _networking
-  - scope:
-      path: ""
-      type: networking
-    values:
-      layout: single
-      author_profile: false
-      share: true
+      mathjax: true
+      sidebar_main: true
 
-collections:
-  iOS:
-    output: true
-    permalink: /:collection/:path/
-  ps:
-    output: true
-    permalink: /:collection/:path/
-  os:
-    output: true
-    permalink: /:collection/:path/
-  networking:
-    output: true
-    permalink: /:collection/:path/
+# collections:
+#   iOS:
+#     output: true
+#     permalink: /:collection/:path/
+#   ps:
+#     output: true
+#     permalink: /:collection/:path/
+#   os:
+#     output: true
+#     permalink: /:collection/:path/
+#   networking:
+#     output: true
+#     permalink: /:collection/:path/
