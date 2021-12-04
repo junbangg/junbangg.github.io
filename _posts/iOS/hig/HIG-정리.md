@@ -1,3 +1,17 @@
+---
+title: "HIG 간단 정리"
+
+categories:
+  - hig
+tags:
+  - [iOS, hig]
+
+toc: true
+toc_sticky: true
+
+date: 2021-12-5
+last_modified_at: 2021-12-5
+---
 ## HIG
 
 1. **Modality** 와 **Navigation**의 차이점
