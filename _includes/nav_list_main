@@ -16,6 +16,20 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "uikit" %}
+                        <li><a href="/categories/uikit" class="">UIKit ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "hig" %}
+                        <li><a href="/categories/hig" class="">HIG ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
 
         <span class="nav__sub-title">PS</span>
             <ul>

@@ -1,7 +1,7 @@
 ---
-title: "UIKit"
+title: "HIG"
 layout: archive
-permalink: categories/uikit
+permalink: categories/hig
 author_profile: true
 sidebar_main: true
 ---
@@ -10,5 +10,5 @@ sidebar_main: true
 
 ***
 
-{% assign posts = site.categories.uikit %}
+{% assign posts = site.categories.hig %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}
