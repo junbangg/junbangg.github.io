@@ -9,8 +9,8 @@ tags:
 toc: true
 toc_sticky: true
 
-date: 2021-12-04
-last_modified_at: 2020-12-04
+date: 2021-12-01
+last_modified_at: 2020-12-01
 ---
 
 # reverse() vs reversed()
