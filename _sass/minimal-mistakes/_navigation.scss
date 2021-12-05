@@ -471,8 +471,8 @@
     color: inherit;
     font-size: $type-size-3;
     font-family: $cute;
-    color: mix(#fff,$primary-color,80%);
-    // color: black;
+    //color: mix(#fff,$primary-color,80%);
+    color: black;
 
     &:hover {
       text-decoration: underline;
@@ -529,6 +529,7 @@
   font-size: $type-size-3;
   font-family: $serif;
   color: mix(#fff,$primary-color,35%);
+  // color: black
   border-bottom: 1px solid $border-color;
 }
 
