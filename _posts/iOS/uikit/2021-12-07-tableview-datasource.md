@@ -13,6 +13,7 @@ date: 2021-12-7
 last_modified_at: 2021-12-7
 ---
 
+
 # TableView
 
 `TableView`는 iOS 에서 데이터를 표현하기 위한 대표적인 방법이다.
@@ -26,9 +27,7 @@ last_modified_at: 2021-12-7
 
 그래서 요 녀석들을 이용해서 `TableView` 를 구현하는건데, 하나씩 살펴봐야겠다.
 
-이번엔 `Datasource` 
-
-## Datasource
+# Datasource
 
 `TableView` 를 사용해서 표현하는 데이터들을 동적으로 만들어줘야하는 경우가 대다수인데,
 
@@ -59,10 +58,15 @@ class Datasource: NSObject, UITableViewDataSource {
 
 그럼 필수 정보를 어떤식으로 제공하는지 하나씩 살펴보자.
 
-**1. 테이블뷰에 표시할 `Section` 의 수와 `Row` 의 수** 는 아래의 메서드를 활용해서 제공을 해준다.
+<br>
 
-- `func numberOfSections(in tableView: UITableView) -> Int`
-- `func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int`
+
+## 테이블뷰에 표시할 `Section` 의 수와 `Row` 의 수
+`tableView` 필수 정보의 첫번째인 `Section` 의 수와 `Row` 의 수는 아래의 메서드를 활용해서 제공할 수 있다.
+```swift
+func numberOfSections(in tableView: UITableView) -> Int
+func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+```
 
 공식문서에 의하면, 위 두 메서드에서 리턴을 최대한 **빠르게** 해줘야된다고 한다.
 
@@ -70,39 +74,69 @@ class Datasource: NSObject, UITableViewDataSource {
 
 그래서 추천하는 방법이 **배열** 을 사용하는것이다. `TableView` 의 데이터구조랑 배열의 구조를 맞추면  `Section` 수, `Row` 수도 빠르게 접근할 수 있기 때문인것 같다.
 
-그리고
+<br>
 
-  **2. 화면에 보이는 테이블뷰 부분에 표시할 `Cell`** 는 다음과 같은 방법으로 제공해줄 수 있다.
+
+## 화면에 보이는 테이블뷰 부분에 표시할 `Cell`
+
+**`Cell`** 은 다음과 같은 방법으로 제공해줄 수 있다.
 
 일단 `UITableViewDataSource` 에 있는 
+```swift
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {} 
+```
 
-`func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {}` 
 
-요 메서드를 사용해서 `Cell` 을 제공해주는건데. 아래와 같이 보통 구현하는것 같다.
+메서드를 사용해서 `Cell` 을 제공해주는건데. 아래와 같이 보통 구현하는것 같다.
 
 ```swift
 func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
   
    let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
-																					 for: indexPath)
+                                                                                     for: indexPath)
    cell.textLabel!.text = "Row \(indexPath.row)"
    return cell
 }
 ```
+여기서 중요한 특징은, **`tableView`가 한번에 모든 `cell` 을 요구하지않는다는 것이다.** `lazy` 하게 `cell` 을 달라고하는데, 화면에 보이는 부분에 대해서만 위의 `cellForRowAt` 메서드로 `cell`을 달라고하고, 그 밑에 아직 보이지않는 `cell` 들은 아래로 스크롤을 하면서 요구한다.
 
-- 여기서 핵심은 `func dequeueReusableCell(withIdentifier identifier: [String](https://developer.apple.com/documentation/swift/string), for indexPath: IndexPath) -> [UITableViewCell](https://developer.apple.com/documentation/uikit/uitableviewcell)`이라는 메서드인데.
-- 이 메서드가 하는 일은
+사용자가 아래로 스크롤을하면, 위쪽에 있는 `cell`들은 위쪽으로 사라지면서 `tableView`가 가지고있는 `reuseQueue` 에 들어가게 된다.
+그리고 밑에서 새롭게 만나게되는 `cell`들은 그때서야 생성이 되어 화면에 표시되는것이다. 
+사용자가 위아래로 스크롤하면서 사라지는 `cell`들은 전부 `reuseQueue`에 들어갔다가, `dequeueReusableCell`이라는 메서드로 다시 꺼내진다.
+
+[사진]
+
+이렇게되면 매번 `cell`이라는 인스턴스를 만들 필요 없이 **recycle** 할 수 있는것이다.`dequeueReusableCell`은 밑에서 살펴본다.
+
+
+엄청나게 많은 데이터를 앱으로 가져와서 `tableView` 로 표시해야되는 상황을 상상해보면 왜 `lazy`하게 하는건지 좀 짐작이 가는것 같다.
+유저가 아래로 스크롤을 할지 안할지도 모르는데 미리 그 많은 데이터를 `cell`로 만들어놔서 담아놓는것은 굉장히 비효율적일것이다.
+
+
+
+### `dequeueReusableCell()`
+
+여기서 또 다른 핵심은 `dequeueReusableCell(withIdentifier identifier: String)`이라는 메서드인데. 이 메서드가 하는 일은
     
-    일단 `tableView` 가 갖고있는 큐에 접근을해서 들어있는 `UITableViewCell` 이 있는지 확인을 한다.
+- 일단 `tableView` 가 갖고있는 큐에 접근을해서 들어있는 `UITableViewCell` 이 있는지 확인을 한다.
     
     1. 있으면 그걸 리턴한다
     2. 없으면, `withIdentifier` 로 들어온 `identifier` 를 이용해서 새로운 "빈" `UITableViewCell` 을 리턴한다.
+    
     - 이 메서드도 매개변수만 살짝 다른게 있는데
-        - `func dequeueReusableCell(withIdentifier identifier: [String](https://developer.apple.com/documentation/swift/string)) -> [UITableViewCell](https://developer.apple.com/documentation/uikit/uitableviewcell)?`
+        - `func dequeueReusableCell(withIdentifier identifier: String -> UITableViewCell?`
             - 아까 위에거는 `dataSource` 에서만 사용을 해야되는 반면에, 이건 밖에서도 사용이 가능하다는 차이점이 있다.
             - 그리고 이 메서드는, `reuse queue` 에 `cell` 도 없고, 유효한 `identifier` 도 없으면 `nil` 을 리턴한다.
         
         **사실 이 두개의 메서드는 어떨때 쓰임이 다른지 아직 잘 와닿지는 않는다.**
         
+
+
 - 그러면 밖으로 나온 **Reusable Cell** 을 configure해서 테이블뷰 한테 최종적으로 주는거다.
+
+[TableView 활동학습](https://www.notion.so/TableView-3a4c83bbce8f4cfe94fbb0dd85c1f687)
+
+## Prefetching 궁금하다
+
+[Apple Developer Documentation](https://developer.apple.com/documentation/uikit/uitableviewdatasourceprefetching)
