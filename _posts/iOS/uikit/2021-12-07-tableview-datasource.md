@@ -27,7 +27,7 @@ last_modified_at: 2021-12-7
 
 그래서 요 녀석들을 이용해서 `TableView` 를 구현하는건데, 하나씩 살펴봐야겠다.
 
-# Datasource
+# UITableViewDataSource
 
 `TableView` 를 사용해서 표현하는 데이터들을 동적으로 만들어줘야하는 경우가 대다수인데,
 
