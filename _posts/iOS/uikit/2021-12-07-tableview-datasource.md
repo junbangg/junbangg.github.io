@@ -1,0 +1,108 @@
+---
+title: "TableView-Datasource"
+
+categories:
+  - uikit
+tags:
+  - [iOS, uikit]
+
+toc: true
+toc_sticky: true
+
+date: 2021-12-7
+last_modified_at: 2021-12-7
+---
+
+# TableView
+
+`TableView`는 iOS 에서 데이터를 표현하기 위한 대표적인 방법이다.
+
+`TableView` 를 이루는 구성요소에는 크게 4가지가 있다.
+
+- `Cell` : 화면에 표시하려는 데이터를 담는 틀 (`row`)
+- `TableViewController` : 테이블뷰를 관리하기위한 객체. 보통 `UITableViewController` 사용
+- `Datasource` : 테이블에 표시할 데이터를 제공하는 객체
+- `Delegate` : 테이블과 유저간의 interaction을 관리해주는 객체
+
+그래서 요 녀석들을 이용해서 `TableView` 를 구현하는건데, 하나씩 살펴봐야겠다.
+
+이번엔 `Datasource` 
+
+## Datasource
+
+`TableView` 를 사용해서 표현하는 데이터들을 동적으로 만들어줘야하는 경우가 대다수인데,
+
+이걸 `UITableViewDataSource` 프로토콜을 채택한 객체를 이용해서 한다.
+
+`TableView` 를 그리기 위해서는 두가지의 데이터 반드시 필요한데, 바로
+
+1. **테이블뷰에 표시할 `Section` 의 수와 `Row` 의 수**
+2. **화면에 보이는 테이블뷰 부분에 표시할 `Cell`** 
+
+이 두가지이다. 
+
+그렇기 때문에 이 `Protocol` 을 채택하면 
+
+```swift
+class Datasource: NSObject, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+    }
+}
+```
+
+이렇게 두개의 메서드는 필수적으로 구현해줘야한다
+
+그럼 필수 정보를 어떤식으로 제공하는지 하나씩 살펴보자.
+
+**1. 테이블뷰에 표시할 `Section` 의 수와 `Row` 의 수** 는 아래의 메서드를 활용해서 제공을 해준다.
+
+- `func numberOfSections(in tableView: UITableView) -> Int`
+- `func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int`
+
+공식문서에 의하면, 위 두 메서드에서 리턴을 최대한 **빠르게** 해줘야된다고 한다.
+
+이유를 생각해보면, `TableView` 가 그려지려면 `Section` 수, `Row` 수가 필요하다고 했는데, 그걸 느린 연산으로 가져오면 뷰가 그려지는 속도가 늦어지니까 그런것 같다.
+
+그래서 추천하는 방법이 **배열** 을 사용하는것이다. `TableView` 의 데이터구조랑 배열의 구조를 맞추면  `Section` 수, `Row` 수도 빠르게 접근할 수 있기 때문인것 같다.
+
+그리고
+
+  **2. 화면에 보이는 테이블뷰 부분에 표시할 `Cell`** 는 다음과 같은 방법으로 제공해줄 수 있다.
+
+일단 `UITableViewDataSource` 에 있는 
+
+`func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {}` 
+
+요 메서드를 사용해서 `Cell` 을 제공해주는건데. 아래와 같이 보통 구현하는것 같다.
+
+```swift
+func tableView(_ tableView: UITableView,
+                 cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  
+   let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
+																					 for: indexPath)
+   cell.textLabel!.text = "Row \(indexPath.row)"
+   return cell
+}
+```
+
+- 여기서 핵심은 `func dequeueReusableCell(withIdentifier identifier: [String](https://developer.apple.com/documentation/swift/string), for indexPath: IndexPath) -> [UITableViewCell](https://developer.apple.com/documentation/uikit/uitableviewcell)`이라는 메서드인데.
+- 이 메서드가 하는 일은
+    
+    일단 `tableView` 가 갖고있는 큐에 접근을해서 들어있는 `UITableViewCell` 이 있는지 확인을 한다.
+    
+    1. 있으면 그걸 리턴한다
+    2. 없으면, `withIdentifier` 로 들어온 `identifier` 를 이용해서 새로운 "빈" `UITableViewCell` 을 리턴한다.
+    - 이 메서드도 매개변수만 살짝 다른게 있는데
+        - `func dequeueReusableCell(withIdentifier identifier: [String](https://developer.apple.com/documentation/swift/string)) -> [UITableViewCell](https://developer.apple.com/documentation/uikit/uitableviewcell)?`
+            - 아까 위에거는 `dataSource` 에서만 사용을 해야되는 반면에, 이건 밖에서도 사용이 가능하다는 차이점이 있다.
+            - 그리고 이 메서드는, `reuse queue` 에 `cell` 도 없고, 유효한 `identifier` 도 없으면 `nil` 을 리턴한다.
+        
+        **사실 이 두개의 메서드는 어떨때 쓰임이 다른지 아직 잘 와닿지는 않는다.**
+        
+- 그러면 밖으로 나온 **Reusable Cell** 을 configure해서 테이블뷰 한테 최종적으로 주는거다.
