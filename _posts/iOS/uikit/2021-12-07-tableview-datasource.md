@@ -27,7 +27,7 @@ last_modified_at: 2021-12-7
 
 그래서 요 녀석들을 이용해서 `TableView` 를 구현하는건데, 하나씩 살펴봐야겠다.
 
-# Datasource
+# UITableViewDataSource
 
 `TableView` 를 사용해서 표현하는 데이터들을 동적으로 만들어줘야하는 경우가 대다수인데,
 
@@ -105,7 +105,8 @@ func tableView(_ tableView: UITableView,
 그리고 밑에서 새롭게 만나게되는 `cell`들은 그때서야 생성이 되어 화면에 표시되는것이다. 
 사용자가 위아래로 스크롤하면서 사라지는 `cell`들은 전부 `reuseQueue`에 들어갔다가, `dequeueReusableCell`이라는 메서드로 다시 꺼내진다.
 
-[사진]
+![Untitled Notebook-13](https://user-images.githubusercontent.com/33091784/145038337-8002a1e4-bbfe-455b-92db-20802af8dd60.jpg)
+
 
 이렇게되면 매번 `cell`이라는 인스턴스를 만들 필요 없이 **recycle** 할 수 있는것이다.`dequeueReusableCell`은 밑에서 살펴본다.
 
