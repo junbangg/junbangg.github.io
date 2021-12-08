@@ -29,6 +29,9 @@ last_modified_at: 2021-12-7
 
 # UITableViewDataSource
 
+![Screen Shot 2021-12-08 at 8 15 47 PM](https://user-images.githubusercontent.com/33091784/145199347-0b497c91-d54d-48d8-8d05-54cea481e0d9.png)
+
+
 `TableView` 를 사용해서 표현하는 데이터들을 동적으로 만들어줘야하는 경우가 대다수인데,
 
 이걸 `UITableViewDataSource` 프로토콜을 채택한 객체를 이용해서 한다.
@@ -102,19 +105,35 @@ func tableView(_ tableView: UITableView,
 여기서 중요한 특징은, **`tableView`가 한번에 모든 `cell` 을 요구하지않는다는 것이다.** `lazy` 하게 `cell` 을 달라고하는데, 화면에 보이는 부분에 대해서만 위의 `cellForRowAt` 메서드로 `cell`을 달라고하고, 그 밑에 아직 보이지않는 `cell` 들은 아래로 스크롤을 하면서 요구한다.
 
 사용자가 아래로 스크롤을하면, 위쪽에 있는 `cell`들은 위쪽으로 사라지면서 `tableView`가 가지고있는 `reuseQueue` 에 들어가게 된다.
-그리고 밑에서 새롭게 만나게되는 `cell`들은 그때서야 생성이 되어 화면에 표시되는것이다. 
-사용자가 위아래로 스크롤하면서 사라지는 `cell`들은 전부 `reuseQueue`에 들어갔다가, `dequeueReusableCell`이라는 메서드로 다시 꺼내진다.
+그리고 밑에서 새롭게 올라오는 `cell`들은 `dequeueReusableCell` 메서드를 통해서 `reuseQueue` 에서 꺼내와서 재사용하여 새로운 데이터를 담는 `cell` 이 되는 것이다. 
+
 
 ![Untitled Notebook-13](https://user-images.githubusercontent.com/33091784/145038337-8002a1e4-bbfe-455b-92db-20802af8dd60.jpg)
 
-
-이렇게되면 매번 `cell`이라는 인스턴스를 만들 필요 없이 **recycle** 할 수 있는것이다.`dequeueReusableCell`은 밑에서 살펴본다.
-
+이렇게되면 매번 `UITableViewCell` 인스턴스를 새롭게 생성할 필요 없이 기존에 생성했던 인스턴스들을 **recycle** 할 수 있는것이다.
 
 엄청나게 많은 데이터를 앱으로 가져와서 `tableView` 로 표시해야되는 상황을 상상해보면 왜 `lazy`하게 하는건지 좀 짐작이 가는것 같다.
 유저가 아래로 스크롤을 할지 안할지도 모르는데 미리 그 많은 데이터를 `cell`로 만들어놔서 담아놓는것은 굉장히 비효율적일것이다.
 
+다만, 위의 동작 방법대로라면, 화면에 표시되는 범위의 `UITableViewCell` 의 개수만으로 계속 재사용되는건지 궁금해진다.
+**예를 들어 화면에 보이는 `cell` 이 20개 정도라고 하고, 해당 화면에 보여질 수 있는 데이터의 개수가 1000개 정도 된다고 했을때, 20개의 `UITableViewCell` 로만 1000개가 표현되는건지? 궁금하다**
 
+그리고 위에 그림을 보면, `dequeueReusableCell` 로 꺼내져온 `cell` 이 `datasource` 한테 전달되기 전에, 잠깐 거치는 곳이 있는데,
+바로 `prepareForReuse` 라는 메서드이다.
+
+
+### `prepareForReuse`
+
+![Screen Shot 2021-12-08 at 8 16 08 PM](https://user-images.githubusercontent.com/33091784/145199401-5a0a86ed-39b4-4f3c-9471-fd7005a2ef51.png)
+
+`prepareForReuse` 가 하는 일은 말 그대로다.
+메서드로 들어오는 `UITableViewCell`을 다시 **configure** 할 수 있게 **reset** 해주는 것이다.
+공식문서에 의하면, 성능적인 측면 때문에 여기서는 **content** 과는 무관한 것들만 **reset** 해주는 것이라고 한다.
+
+이 부분에 대해서 생각해보면서 `cell` 에 이미지가 있고 재사용할 때마다 이미지를 바꿔줘야하는 상황은 어떨지 상상을 해봤는데
+<https://stackoverflow.com/questions/50916739/reusing-cells-in-uitableview>
+`prepareForReuse` 를 `override` 하여 `default` 이미지를 세팅 해주면 성능 저하가 해결 될 수 있다는 이야기가 있는것 같다.
+이 부분은 프로젝트에서 한 번 실험 해봐야될것 같다.
 
 ### `dequeueReusableCell()`
 
