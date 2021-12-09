@@ -107,9 +107,7 @@ func tableView(_ tableView: UITableView,
 사용자가 아래로 스크롤을하면, 위쪽에 있는 `cell`들은 위쪽으로 사라지면서 `tableView`가 가지고있는 `reuseQueue` 에 들어가게 된다.
 그리고 밑에서 새롭게 올라오는 `cell`들은 `dequeueReusableCell` 메서드를 통해서 `reuseQueue` 에서 꺼내와서 재사용하여 새로운 데이터를 담는 `cell` 이 되는 것이다. 
 
-![Untitled Notebook-13](https://user-images.githubusercontent.com/33091784/145210002-f5b481e7-a21a-4631-8398-6e3c2df2e959.jpg)
-
-
+![Table View-1](https://user-images.githubusercontent.com/33091784/145315887-b2974d63-4596-4bf6-bdb0-d17d4b7b2cf9.jpg)
 
 이렇게되면 매번 `UITableViewCell` 인스턴스를 새롭게 생성할 필요 없이 기존에 생성했던 인스턴스들을 **recycle** 할 수 있는것이다.
 
