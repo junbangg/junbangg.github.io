@@ -149,7 +149,9 @@ func tableView(_ tableView: UITableView,
             - 아까 위에거는 `dataSource` 에서만 사용을 해야되는 반면에, 이건 밖에서도 사용이 가능하다는 차이점이 있다.
             - 그리고 이 메서드는, `reuse queue` 에 `cell` 도 없고, 유효한 `identifier` 도 없으면 `nil` 을 리턴한다.
         
-        **사실 이 두개의 메서드는 어떨때 쓰임이 다른지 아직 잘 와닿지는 않는다.**
+       
+        저거 두개중에서 `identifier` 이랑 `indexPath` 둘다 있는 메서드가 새롭게 생긴 메서드라고 한다.
+        **근데 이 두개의 메서드는 어떨때 쓰임이 다른지 아직 잘 와닿지는 않는다.**
         
         
 - 그러면 밖으로 나온 **Reusable Cell** 을 configure해서 테이블뷰 한테 최종적으로 주는거다.
