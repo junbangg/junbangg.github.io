@@ -152,12 +152,11 @@ func tableView(_ tableView: UITableView,
         
         **사실 이 두개의 메서드는 어떨때 쓰임이 다른지 아직 잘 와닿지는 않는다.**
         
-
-
+        
 - 그러면 밖으로 나온 **Reusable Cell** 을 configure해서 테이블뷰 한테 최종적으로 주는거다.
 
-[TableView 활동학습](https://www.notion.so/TableView-3a4c83bbce8f4cfe94fbb0dd85c1f687)
+## 궁금한점
 
-## Prefetching 궁금하다
+성능을 위한 Prefetching이 어떻게 구현되는지 궁금하다
 
 [Apple Developer Documentation](https://developer.apple.com/documentation/uikit/uitableviewdatasourceprefetching)
