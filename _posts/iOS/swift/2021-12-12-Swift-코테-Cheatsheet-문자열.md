@@ -1,3 +1,19 @@
+---
+title:  "Swift 코딩테스트 Cheatsheet - 문자열 편" 
+
+categories:
+  - swift
+tags:
+  - [iOS, swift, 코딩테스트, cheatsheet]
+
+toc: true
+toc_sticky: true
+
+date: 2021-12-12
+last_modified_at: 2020-12-12
+---
+
+부연 설명 
 ```swift
 //MARK: Integer -> Binary String
 let N = String(N, radix: 2)
