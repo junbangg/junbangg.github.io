@@ -13,35 +13,43 @@ date: 2021-12-12
 last_modified_at: 2020-12-12
 ---
 
-부연 설명 
+# Integer -> Binary String
+
 ```swift
-//MARK: Integer -> Binary String
+
 let N = String(N, radix: 2)
 // Binary String ->  Integer
 let N = Int(strtoul("1111000", nil, 2))
-
-//MARK: Array indexing
+```
+# Array indexing
+```swift
 //Insert
 A.insert("somthing", at: 0)
+```
 
-//MARK: Pop()
-A.removeLast()
-
-//MARK: Access Last element
+# Access Last element
+```swift
 A.last
+```
 
-//MARK: Count element Frequencies in Array
-// Python Counter
+# Count element Frequencies in Array
+**파이썬** `Counter` 와 똑같은 기능
+```swift
 let items = ["a","b","c","c"]
 let mappedItems = items.map{ ($0, 1) }
 let counts = Dictionary(mappedItems, uniquingKeyswith: +)
+```
 
-//MARK: Count unique values in Array
+# Count unique values in Array
+```swift
 return Set(array).count
+```
 
-//MARK: Substring Extension
-//Reference: https://stackoverflow.com/a/46634511
-// Swift4/5
+# Substring Extension
+
+문자열 파이썬 처럼 다루기 편하게 해주는 문자열 `extension` 
+Reference: https://stackoverflow.com/a/46634511
+```swift
 public extension String {
   subscript(value: Int) -> Character {
     self[index(at: value)]
@@ -81,15 +89,19 @@ private extension String {
     index(startIndex, offsetBy: offset)
   }
 }
+```
 
-// Usage
+## 사용 방법
+```swift
 let text = "Hello world"
 text[0] // H
 text[...3] // "Hell"
 text[6..<text.count] // world
 text[NSRange(location: 6, length: 3)] // wor
+```
 
-//MARK: String -> Array
+# String -> Array
+```swift
 let str = "aBcDeF"
 
 // Character형을 요소로 갖는 배열
@@ -100,14 +112,21 @@ print("\(charArr) : \(type(of: charArr))") // ["a", "B", "c", "D", "e", "F"] : A
 // String형을 요소로 갖는 배열
 let strArr = str.map {String($0)}
 print("\(strArr) : \(type(of: strArr))") // ["a", "B", "c", "D", "e", "F"] : Array<String>
+```
 
-//MARK: Array -> String
+# Array -> String
+
+배열을 문자열로 변환
+```swift
 let array = ["A", "B", "C"]
 let str1 = String(Array)
 let str2 = array.joined(separator: "")
 let str3 = array.reduce("", +)
+```
 
-//MARK: 접두어 접미어 확인
+# 접두어 접미어 확인
+
+```swift
 let str = "aBcDeF"
 
 // 접두어 (앞에서부터 몇 글자)
