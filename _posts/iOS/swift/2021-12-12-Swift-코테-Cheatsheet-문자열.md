@@ -45,6 +45,16 @@ let counts = Dictionary(mappedItems, uniquingKeyswith: +)
 return Set(array).count
 ```
 
+# `String` 에서 `index` 하나 빼고 `substring` 리턴하는 방법
+```swift
+func getSubstring(of string: String, without deleteIndex: Int) -> String {
+    var substring = string
+    let index = substring.index(substring.startIndex, offsetBy: deleteIndex)
+    substring.remove(at: index)
+    return substring
+}
+```
+
 # Substring Extension
 
 문자열 파이썬 처럼 다루기 편하게 해주는 문자열 `extension` 
