@@ -48,6 +48,7 @@ return Set(array).count
 # Substring Extension
 
 문자열 파이썬 처럼 다루기 편하게 해주는 문자열 `extension` 
+**근데 이거 코테때 잘 안됐었다**
 Reference: https://stackoverflow.com/a/46634511
 ```swift
 public extension String {
