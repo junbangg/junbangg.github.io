@@ -376,3 +376,6 @@ struct TestLayout: Layout {
 
 **이러면 테스트는 **UIView** 와 분리 될 수 있다.**
 
+# enum으로 View의 State 나타내기
+
+
