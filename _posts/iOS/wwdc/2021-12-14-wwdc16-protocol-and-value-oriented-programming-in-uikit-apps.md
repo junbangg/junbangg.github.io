@@ -2,7 +2,7 @@
 title:  "WWDC 2016 Protocol and Value Oriented Programming in UIKit Apps" 
 
 categories:
-  - swift
+  - wwdc
 tags:
   - [iOS, wwdc]
 
