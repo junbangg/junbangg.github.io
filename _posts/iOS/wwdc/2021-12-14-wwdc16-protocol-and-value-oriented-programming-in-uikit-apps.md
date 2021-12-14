@@ -378,4 +378,18 @@ struct TestLayout: Layout {
 
 # enum으로 View의 State 나타내기
 
+뷰의 상태를 뷰컨에서 변수로 나타낼때 서로 
+**mutually exclusive 하지않으면 오류가 발생할 확률이 올라간다**
+
+이걸 **enum** 으로 구현하면 된다.
+스위프트의 type system 이 강제로 case 끼리 **mutually exclusive** 된다.
+
+```swift
+
+enum State {
+    case vieweing
+    case sharing(dreams: [Dream])
+    case selecting(selectedRows: IndexSet)
+}
+```
 
