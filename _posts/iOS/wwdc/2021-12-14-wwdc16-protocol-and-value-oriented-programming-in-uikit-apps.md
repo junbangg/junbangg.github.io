@@ -13,6 +13,11 @@ date: 2021-12-14
 last_modified_at: 2020-12-14
 ---
 
+# 배운 Techniques
+- Local Reasoning with value types
+- Generic types for fast, safe polymorphism
+- Composition of values
+
 # Local Reasoning
 
 코드를 처음 봤을때, 코드 다른 곳으로 눈을 돌릴 필요 없이 바로 앞에 있는 **local** 한 코드로만 이해할 수 있는 것.
@@ -370,3 +375,4 @@ struct TestLayout: Layout {
 ```
 
 **이러면 테스트는 **UIView** 와 분리 될 수 있다.**
+
