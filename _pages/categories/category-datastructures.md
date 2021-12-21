@@ -1,5 +1,5 @@
 ---
-title: "자료구조"
+title: "Data Structures"
 layout: archive
 permalink: categories/datastructures
 author_profile: true
