@@ -1,3 +1,18 @@
+---
+title:  "의존성 주입(Dependency Injection)" 
+
+categories:
+  - swift
+tags:
+  - [iOS, swift, SOLID]
+
+toc: true
+toc_sticky: true
+
+date: 2021-12-22
+last_modified_at: 2020-12-2
+---
+
 # 의존성 주입
 
 외부에서 두 객체 간의 관계를 결정해주는 디자인 패턴으로
