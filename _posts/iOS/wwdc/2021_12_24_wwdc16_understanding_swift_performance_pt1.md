@@ -1,3 +1,18 @@
+---
+title:  "WWDC 2016 Understanding Swift Performance 1부" 
+
+categories:
+  - wwdc
+tags:
+  - [iOS, wwdc]
+
+toc: true
+toc_sticky: true
+
+date: 2021-12-24
+last_modified_at: 2020-12-24
+---
+
 # 스위프트의 성능
 
 스위프트에서 성능을 고려할때 신경써야하는 것이 크게 3가지 있다.
