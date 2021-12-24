@@ -17,7 +17,8 @@ last_modified_at: 2020-12-24
 
 스위프트에서 성능을 고려할때 신경써야하는 것이 크게 3가지 있다.
 
-![Screen Shot 2021-12-23 at 11.38.42 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5f3ef1ee-ae60-42d7-a398-1b2bdeb70186/Screen_Shot_2021-12-23_at_11.38.42_PM.png)
+<img width="1270" alt="Screen Shot 2021-12-23 at 11 38 42 PM" src="https://user-images.githubusercontent.com/33091784/147314658-4815025b-caba-4d3f-8c64-9ce864577d82.png">
+
 
 **Allocation**
 
@@ -63,7 +64,8 @@ last_modified_at: 2020-12-24
 
 ### 코드 예시
 
-![Screen Shot 2021-12-24 at 12.34.52 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/16c0378f-a83f-4ab5-a3b9-d574557f5b97/Screen_Shot_2021-12-24_at_12.34.52_AM.png)
+<img width="1270" alt="Screen Shot 2021-12-24 at 12 34 52 AM" src="https://user-images.githubusercontent.com/33091784/147314668-eb392639-eab1-434b-ae2c-1efd2819bf32.png">
+
 
  (`point2.x = 5` 를 할때, `point2.y` 는 아직 0 인데.. 이걸 `value semantics` 라고 부른다는데 그게 뭔지 아직 모르겠다.)
 
@@ -71,7 +73,8 @@ last_modified_at: 2020-12-24
 
 반면에 같은 코드를 **클래스** 로 변경 했을때 **힙** 에서 어떻게 저장되는지 살펴보면,
 
-![Screen Shot 2021-12-24 at 8.46.30 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6820623d-1e09-40b8-9260-823ae7a141b6/Screen_Shot_2021-12-24_at_8.46.30_AM.png)
+<img width="1236" alt="Screen Shot 2021-12-24 at 8 46 30 AM" src="https://user-images.githubusercontent.com/33091784/147314675-47ba8066-1d8a-4e4c-a17d-479a4a698bcb.png">
+
 
 `let point1` , `var point2` 에 `Point` 인스턴스의 주소값이 저장되기 때문에, **Stack** 의 공간도 할당이 된다.
 
@@ -83,13 +86,15 @@ last_modified_at: 2020-12-24
 
 에 동시에 접근해서 같은 인스턴스 참조를 변경시킬 수 있기 때문이다.
 
-![Screen Shot 2021-12-24 at 8.50.00 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/04d27660-0403-4b86-868d-11c9c26eea58/Screen_Shot_2021-12-24_at_8.50.00_AM.png)
+<img width="1236" alt="Screen Shot 2021-12-24 at 8 50 00 AM" src="https://user-images.githubusercontent.com/33091784/147314698-6a033043-d543-4a14-bffd-5d0865607be3.png">
+
 
 그런데 **Heap** 이 제공해준 메모리 공간이 **Stack** 과는 다르게 4개의 공간이라는 것을 볼 수 있다.
 
 2개는 `x`, `y` 를 저장 하기 위해서이고, 나머지 두개는 스위프트에서 관리해주는 공간이라고 한다.
 
-![Screen Shot 2021-12-24 at 8.54.48 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/55488858-dfeb-4af7-a01f-4d1223a5f82b/Screen_Shot_2021-12-24_at_8.54.48_AM.png)
+<img width="1236" alt="Screen Shot 2021-12-24 at 8 54 48 AM" src="https://user-images.githubusercontent.com/33091784/147314704-59e680b9-14c4-4d55-84ba-e64eabaa9c41.png">
+
 
 여기서 만약에 `point1` 을 `point2` 변수에 저장을 하면 무슨 일이 일어날까?
 
@@ -129,7 +134,8 @@ last_modified_at: 2020-12-24
 
 근데 아무래도 이렇게하면 여러 작업들이 많이 필요한데, 비용은 자연스럽게 올라갈것이다.
 
-![Screen Shot 2021-12-24 at 9.19.53 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e0493c33-9345-4a3e-b925-acf0057decae/Screen_Shot_2021-12-24_at_9.19.53_AM.png)
+<img width="1236" alt="Screen Shot 2021-12-24 at 9 19 53 AM" src="https://user-images.githubusercontent.com/33091784/147314713-9dcbe0ac-10b7-45a6-897d-262a0825b4e4.png">
+
 
 위 코드로 **ARC** 가 어떤 식으로 동작하는지 볼 수 있다.
 
@@ -137,13 +143,15 @@ last_modified_at: 2020-12-24
 
 `release` 는 참조 카운트를 **atomically decrement** 할것이다.
 
-![Screen Shot 2021-12-24 at 9.25.21 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a371b747-4401-41d2-b53c-73699500c0cf/Screen_Shot_2021-12-24_at_9.25.21_AM.png)
+<img width="1236" alt="Screen Shot 2021-12-24 at 9 25 21 AM" src="https://user-images.githubusercontent.com/33091784/147314718-a38e1c8d-9c29-4ce0-bfc3-5cfda31d763a.png">
+
 
 그림으로 보면 이렇다
 
 `retain` 이 되면 인스턴스의 참조 카운트는 2가 된다.
 
-![Screen Shot 2021-12-24 at 9.26.31 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/14ba4f96-aa22-42a1-9dfb-5da6451effd1/Screen_Shot_2021-12-24_at_9.26.31_AM.png)
+<img width="1236" alt="Screen Shot 2021-12-24 at 9 26 31 AM" src="https://user-images.githubusercontent.com/33091784/147314728-c3f80a67-d301-4281-a6da-970188cb17e7.png">
+
 
 그리고 `release` 가 되면서 참조카운트는 0이 되고, 스위프트는 비로서 **Heap** 을 잠시 **Lock** 한 뒤, 메모리에서 해제를 시킨다.
 
@@ -151,7 +159,8 @@ last_modified_at: 2020-12-24
 
 위의 **Struct** / **Stack** 예시에서는 **Heap** 을 사용하는 경우가 보이지 않았었다.
 
-![Screen Shot 2021-12-24 at 9.40.33 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/790c6726-c073-4c03-aca8-1c4706ea6afd/Screen_Shot_2021-12-24_at_9.40.33_AM.png)
+<img width="1236" alt="Screen Shot 2021-12-24 at 9 33 12 AM" src="https://user-images.githubusercontent.com/33091784/147314756-c2d332b0-f386-49a3-b06c-b99f477ec6fe.png">
+
 
 이전 예시와는 다르게 여기서는 구조체가 클래스로 된 속성을 갖고있다.
 
@@ -159,7 +168,8 @@ last_modified_at: 2020-12-24
 
 그리고 `label` 을 `label2` 에 저장하게 되면, `text` , 그리고 `font` 에 대한 참조 카운트가 하나씩 더 증가할것이다.
 
-![Screen Shot 2021-12-24 at 9.41.47 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6a0bf445-62a3-45d2-aa95-191443c0cf43/Screen_Shot_2021-12-24_at_9.41.47_AM.png)
+<img width="1236" alt="Screen Shot 2021-12-24 at 9 40 33 AM" src="https://user-images.githubusercontent.com/33091784/147314758-60475bb9-b6d7-4a28-baad-c74960fd9db9.png">
+
 
 여기서는 그러면 `retain` `release` 를 이런식으로 해줄것이다.
 
@@ -193,7 +203,7 @@ last_modified_at: 2020-12-24
 
 ### Static Dispatch의 이점
 
-![Screen Shot 2021-12-24 at 9.57.47 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/80d65160-50d8-4fe1-85b6-9274697852bf/Screen_Shot_2021-12-24_at_9.57.47_AM.png)
+<img width="1236" alt="Screen Shot 2021-12-24 at 9 57 47 AM" src="https://user-images.githubusercontent.com/33091784/147314891-f2c8bdfd-eb43-4bb3-b8bb-312b050f0469.png">
 
 위 코드에서 `Point` 의 `draw()` 와 `drawAPoint` 둘다 **Static Dispatch** 된다.
 
@@ -219,7 +229,9 @@ last_modified_at: 2020-12-24
 
 이게 쓰이는 곳 중에 하나는 바로 **Inheritance-Based Polymorphism** 이다.
 
-![Screen Shot 2021-12-24 at 10.22.31 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4450c9a0-25b4-4665-947c-1e2afcbcc75f/Screen_Shot_2021-12-24_at_10.22.31_AM.png)
+<img width="1236" alt="Screen Shot 2021-12-24 at 10 22 31 AM" src="https://user-images.githubusercontent.com/33091784/147314908-1043ee65-06cd-4d28-a3b6-1abefe512d65.png">
+
+
 
 **Dynamic Dispatch** 가 쓰이는 곳은 바로 아래쪽에 있는 `for` 문이다.
 
@@ -231,7 +243,9 @@ last_modified_at: 2020-12-24
 
 그럼 어떤 implementation을 호출해야되는지 컴파일러는 어떻게 찾을까??
 
-![Screen Shot 2021-12-24 at 10.38.52 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/45f23d49-99b3-40a5-b19b-1c4e73511e19/Screen_Shot_2021-12-24_at_10.38.52_AM.png)
+<img width="1236" alt="Screen Shot 2021-12-24 at 10 38 52 AM" src="https://user-images.githubusercontent.com/33091784/147314914-9bd498ab-8de1-4b68-931f-93557f5816c5.png">
+
+
 
 일단 오른쪽 아래에 있는 `Line` 을 보면 알 수 있듯이, 컴파일러는 클래스에서 `type` 정보 가리키는 포인터를 저장하는 field도 추가해준다. (`type` 정보는 static 메모리에 저장 된다. (데이터 영역))
 
@@ -241,7 +255,8 @@ last_modified_at: 2020-12-24
 
 이 동작 과정을 코드로 표현해보면 다음 과 같다.
 
-![Screen Shot 2021-12-24 at 12.45.54 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0c556c9c-93de-44d1-8ebc-4f732a7e8184/Screen_Shot_2021-12-24_at_12.45.54_PM.png)
+<img width="1236" alt="Screen Shot 2021-12-24 at 12 45 54 PM" src="https://user-images.githubusercontent.com/33091784/147314920-b78ceaaa-2b4f-413e-bfbf-ed6bfcb582fb.png">
+
 
 `d.type.vtable.draw(d)` 가 컴파일러가 올바른 타입의 메서드를 찾는 경로라고 볼 수 있을것 같다.
 
