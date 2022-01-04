@@ -178,7 +178,7 @@ exclude:
   - _posts/Git
   - _posts/algorithm/coding-test/leetcode/2021-12-28-reverse-linked-list.md
   - _posts/CS/OS/2021-10-15-병렬처리.md
-  - _posts/CS/Network/2020-07-09.md
+  - _posts/CS/Network/2020-07-09-chapter1.md
   - _posts/CS/Network/2020-07-14-chapter2.md
   - _posts/CS/Network/2020-07-27-chapter3-1.md
 keep_files:
