@@ -66,8 +66,8 @@ last_modified_at: 2020-12-24
 
 <img width="1270" alt="Screen Shot 2021-12-24 at 12 34 52 AM" src="https://user-images.githubusercontent.com/33091784/147314668-eb392639-eab1-434b-ae2c-1efd2819bf32.png">
 
-
- (`point2.x = 5` 를 할때, `point2.y` 는 아직 0 인데.. 이걸 `value semantics` 라고 부른다는데 그게 뭔지 아직 모르겠다.) 5:50
+이때 `Point` 는 `struct` 이기 때문에 `Stack` 에서 `inline` 으로 저장된다.
+그리고 `point2.x = 5` 를 할때, `point1.x` 는 아직 0으로 남아있는데. 이걸 `value semantics` 라고 한다(참조가 아니라 새로운 인스턴스가 생성되어 복사됨)
 
 아무튼 위 처럼 `point1` , `point2` 에 대한 스택 공간이 할당된 후에는, `stack pointer` 가 다시 메서드가 시작되기 전 상태로 **increment** 되면서 `point1`, `point2` 를 다시 `pop` 해준다.
 
