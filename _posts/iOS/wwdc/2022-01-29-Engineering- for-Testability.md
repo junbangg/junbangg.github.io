@@ -40,6 +40,8 @@ last_modified_at: 2022-01-29
     단점 1: 실행시간이 길다
     단점 2: `URL` 을 확인할 방법이 없다
 2. Unit Test ✅
+
+
 ```swift
 func testOpensDocumentURLWhenButtonIsTapped() {
     let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Preview") as! PreviewViewController
@@ -111,7 +113,6 @@ func testDocumentOpenerWhenItCanOpen() {
     
     XCTAssertEqual(urlOpener.openedURL, URL(string: "alsdkjflkasdjflkjasdlkfj"))
 }
-
 ```
 
 ### 배운것
