@@ -28,7 +28,7 @@ only emit an item from an Observable if a particular timespan has passed without
 - 그리고 만약에 지정된 시간 이내에 event가 방출됐다면, timer 는 초기화된다.
 
 debounce 는 `combine` 으로 한번 접해본 적이 있는데 그때 검색 기능 구현할때 사용했었다
-```swift=
+```swift
 $searchQuery
             .debounce(for: .milliseconds(750), scheduler: RunLoop.main)
 ```
@@ -36,7 +36,7 @@ $searchQuery
 문자가 입력될때마다 매번 네트워크 호출을 실행시키는게 효율적이지 않아서 짧은 시간동안 연속해서 문자 입력할때는 debounce 가 검색(작업)을 막아줬었다. 그다음에 지정된 시간동안 입력이 없으면, 그때서야 검색을 할 수 있도록 구현한거다. 이렇게 되면 불필요한 리소스를 낭비할 필요 없이 실시간 검색 기능 구현이 가능하다.
 
 ## debounce 뜯어보기
-```swift=
+```swift
 extension ObservableType {
 
     /**
@@ -60,7 +60,7 @@ extension ObservableType {
 
 아무튼 그래서 걔네를 이용해서 `Debounce` 라는 타입을 생성해서 리턴하는데 그럼 `Debounce` 는 뭔지 한 번 보러가자
 
-```swift=
+```swift
 
 final private class Debounce<Element>: Producer<Element> {
     fileprivate let source: Observable<Element>
@@ -84,7 +84,7 @@ final private class Debounce<Element>: Producer<Element> {
 `Debounce` 는 `Producer` 라는 클래스를 상속받은 타입인데, 별다른건 없고 `Producer` 에는 `run` 이라는 메서드가 있는데 그걸 `override` 해서 사용하나보다
 `run` 은 `DebounceSink`랑 `DebounceSink().run()` 의 리턴값을 튜플 형태로 반환하는데 그렇다면 `DebounceSink` 가 뭔지도 한 번 살펴봐야겠다
 
-```swift=
+```swift
 final private class DebounceSink<Observer: ObserverType>
     : Sink<Observer>
     , ObserverType
@@ -164,7 +164,7 @@ final private class DebounceSink<Observer: ObserverType>
 ```
 
 코드가 꽤 복잡하고 어려워보여서 일단은 `run` 이 뭐하는지부터 살펴봐야겠다.
-```swift=
+```swift
 func run() -> Disposable {
         let subscription = self.parent.source.subscribe(self)
 
@@ -178,7 +178,7 @@ func run() -> Disposable {
 파보면 결국엔 `asyncAfter` 같은 코드가 나오지않을까라는 생각이 들었는데 그런게 없어서 좀 신기하다
 정확히 저 시간이라는 개념이 어떻게 작동하는지는 `func synchronized_on(_ event: Event<Element>)` 여기에 는것 같다.
 
-```swift=
+```swift
     func synchronized_on(_ event: Event<Element>) {
         switch event {
         case .next(let element):
@@ -214,7 +214,7 @@ func run() -> Disposable {
 `SingleAssignmentDisposable` 에 `scheduler.scheduleRelative` 를 넣는데, 여기서 그토록 궁금했던 `dueTime` 이 들어간다.
 그럼 결국 일을 하는 친구는 이 `scheduler` 인것 같다
 따라 들어가보니까
-```swift=
+```swift
 
     /**
     Schedules an action to be executed.
@@ -229,7 +229,7 @@ func run() -> Disposable {
     }
 ```
 이런 코드가 있는데, 여기서 `scheduleRelative` 도 들어가보면
-```swift=
+```swift
 
     func scheduleRelative<StateType>(_ state: StateType, dueTime: RxTimeInterval, action: @escaping (StateType) -> Disposable) -> Disposable {
         let deadline = DispatchTime.now() + dueTime
@@ -284,7 +284,7 @@ Observable during sequential time windows of a specified duration.
 근데 코드를 살펴보니까 `debounce`랑 비슷한 형태로 구현되어있다
 
 
-```swift=
+```swift
 
 extension ObservableType {
 
@@ -330,7 +330,7 @@ final private class Throttle<Element>: Producer<Element> {
 `Observable`를 한 번 깜싸서 `Throttle`의 형태로 반환하는것도 똑같은걸 볼 수 있다
 
 `debounce`와의 차이는 저 `DebounceSink` 과 `ThrottleSink` 인것 같은데 저걸 살펴보면 좀 알 수 있지않을까 싶다
-```swift=
+```swift
 func synchronized_on(_ event: Event<Element>) {
         switch event {
         case .next(let element):
@@ -398,4 +398,4 @@ func synchronized_on(_ event: Event<Element>) {
 둘다 `synchronized_on` 메서드에서 `scheduler` 를 적절히 제어해서 동작한는것 같은데
 그 이상은 이해하기 어려웠다.
 
-공부를 더 해보면서 추후에 이 글도 좀 손을 봐야겠다
+공부를 더 해보면서 추후에 이 글도 좀 손을 봐야겠다. 특히, `synchronized_on` 이 정확히 어떻게 동작하는지 한 번 자세히 봐야겠다.
