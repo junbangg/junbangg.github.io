@@ -284,8 +284,11 @@ Returns an Observable that emits the first and the latest item emitted by the so
 Observable during sequential time windows of a specified duration.
 ```
 이렇게 써있었다
+
 `debounce` 와는 다르게 "**next 이벤트를 지정된 주기마다 하나씩 구독자에게 전달한다**" 로 정리할 수 있을것 같다.
-근데 코드를 살펴보니까 `debounce`랑 비슷한 형태로 구현되어있다
+다른 말로 하면 n 주기 마다 하나의 이벤트만 구독자에게 전달하고 나머지는 무시
+
+코드를 살펴보니까 `debounce`랑 비슷한 형태로 구현되어있다
 
 
 ```swift=
