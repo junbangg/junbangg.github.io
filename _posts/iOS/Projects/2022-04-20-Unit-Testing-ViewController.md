@@ -37,7 +37,7 @@ last_modified_at: 2022-04-20
 
 위와 같은 이유들 때문에, 레이아웃에 대한 테스트 처럼 꼭 `UI Test` 를 사용해야되는 이유가 아니라면 `단위 테스트` 를 고려해봐도 되겠다는 생각을 했습니다.
 
-# 그럼 `ViewController` 를 어떻게 테스트할까
+# 그럼 `ViewController` 를 어떻게 테스트할까🤔
 
 `ViewController` 테스트의 핵심은 `의존성 주입` (`Dependency Injection`) 이라고 생각합니다. 
 
@@ -122,7 +122,7 @@ struct CalculatorUIPresentation {
 func getPresentation(result: DCAResult) -> CalculatorUIPresentation
 ```
 
-## 근데 그래서 테스트를 어떻게 할까?🤔
+## 근데 그래서 테스트를 어떻게 할까?! 🤔
 
 위 처럼 뷰컨트롤러가 해당 메서드들을 그냥 자체적으로 갖고 있으면 뷰컨트롤러를 통째로 `mock` 해서 테스트 해야됩니다.
 
@@ -203,7 +203,7 @@ extension CalculatorTableViewController: CalculatorUIPresentable {}
 extension CalculatorTableViewController: DCAServicable {}
 ```
 
-## 근데 그래서 테스트를 어떻게 할까😅
+## 근데 진짜 그래서 테스트를 어떻게 할까😅
 
 이제 드디어 테스트를 할 준비를 마쳤습니다.
 
