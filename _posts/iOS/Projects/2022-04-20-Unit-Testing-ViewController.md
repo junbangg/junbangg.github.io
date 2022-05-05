@@ -90,7 +90,7 @@ struct DCAResult {
 
 ```swift
 func calculateDCAResult(
-	_ asset: Asset,
+  _ asset: Asset,
   _ initialInvestmentAmount: Double,
   _ monthlyDollarCostAveragingAmount: Double,
   _ initialDateOfInvestmentIndex: Int
@@ -137,7 +137,7 @@ func getPresentation(result: DCAResult) -> CalculatorUIPresentation
 
 ## POP 로 (살짝) 리팩토링
 
-`POP` 에 대해서 [WWDC 2016년도 Protocol and Value Oriented Programming in UIKit Apps](https://developer.apple.com/videos/play/wwdc2016/419/) 를 보면서 [공부 해보고 기록을 해뒀었는데](https://junbangg.github.io/wwdc/wwdc16-protocol-and-value-oriented-programming-in-uikit-apps/), 테스트할때도 효과가 있다는게 얼핏 기억나서 한 번 적용해봤습니다.
+`POP` 에 대해서 [<WWDC 2016년도 Protocol and Value Oriented Programming in UIKit Apps>](https://developer.apple.com/videos/play/wwdc2016/419/) 를 보면서 [>공부 해보고 기록을 해뒀었는데>](https://junbangg.github.io/wwdc/wwdc16-protocol-and-value-oriented-programming-in-uikit-apps/), 테스트할때도 효과가 있다는게 얼핏 기억나서 한 번 적용해봤습니다.
 
 위에 테스트하기로 했던 두개의 기능들
 
@@ -149,7 +149,7 @@ func getPresentation(result: DCAResult) -> CalculatorUIPresentation
 - `DCAServicable`
 - `CalculatorUIPresentable`
 
-이렇게 하고 확장을 이용해서 각 메서드의 기본 구현을 제공했다. 
+이렇게 하고 확장을 이용해서 각 메서드의 기본 구현을 제공했습니다. 
 
 ```swift
 protocol DCAServicable {
@@ -189,7 +189,7 @@ extension CalculatorUIPresentable {
 }
 ```
 
-이렇게 구현을 한뒤에 해당 뷰컨트롤러에 채택 시키면 기능은 분리 시키면서 사용할 수 있다.
+이렇게 구현을 한뒤에 해당 뷰컨트롤러에 채택 시키면 기능은 분리 시키면서 사용할 수 있.
 
 ```swift
 final class CalculatorTableViewController: UITableViewController {}
