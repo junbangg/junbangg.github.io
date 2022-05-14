@@ -1,5 +1,5 @@
 ---
-title:  "의존성 주입(Dependency Injection)" 
+title:  "iOS 의존성 주입(Dependency Injection)" 
 
 categories:
   - swift
