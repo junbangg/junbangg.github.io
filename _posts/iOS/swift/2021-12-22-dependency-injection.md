@@ -4,7 +4,7 @@ title:  "iOS 의존성 주입(Dependency Injection)"
 categories:
   - swift
 tags:
-  - [의존성 주입, swift, SOLID, DI, Dependency Injection]
+  - [의존성 주입, SOLID, DI, Dependency Injection]
 
 toc: true
 toc_sticky: true
