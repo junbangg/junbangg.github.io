@@ -4,7 +4,7 @@ title: "ViewController를 단위테스트 하는 방법(feat. POP)"
 categories:
   - Projects
 tags:
-  - [iOS, Projects]
+  - [ViewController, TDD, 단위 테스트, Unit Test, POP]
 
 toc: true
 toc_sticky: true
