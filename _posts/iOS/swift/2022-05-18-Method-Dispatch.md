@@ -127,8 +127,8 @@ last_modified_at: 2022-5-14
 
 # 참고 자료
 
-<href>https://www.rightpoint.com/rplabs/switch-method-dispatch-table
-<href>https://hyunsikwon.github.io/swift/Swift-MethodDispatch-01/
-<href>https://developer.apple.com/swift/blog/?id=27
-<href>https://medium.com/@bakshioye/static-vs-dynamic-dispatch-in-swift-a-decisive-choice-cece1e872d
-<href>https://developer.apple.com/videos/play/wwdc2016/416/)
+[https://www.rightpoint.com/rplabs/switch-method-dispatch-table](https://www.rightpoint.com/rplabs/switch-method-dispatch-table)
+[https://hyunsikwon.github.io/swift/Swift-MethodDispatch-01/](https://hyunsikwon.github.io/swift/Swift-MethodDispatch-01/)
+[https://developer.apple.com/swift/blog/?id=27](https://developer.apple.com/swift/blog/?id=27)
+[https://medium.com/@bakshioye/static-vs-dynamic-dispatch-in-swift-a-decisive-choice-cece1e872d](https://medium.com/@bakshioye/static-vs-dynamic-dispatch-in-swift-a-decisive-choice-cece1e872d)
+[https://developer.apple.com/videos/play/wwdc2016/416/](https://developer.apple.com/videos/play/wwdc2016/416/)
