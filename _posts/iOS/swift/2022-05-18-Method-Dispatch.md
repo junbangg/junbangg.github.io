@@ -15,7 +15,8 @@ last_modified_at: 2022-5-14
 
 # Method Dispatch 란?
 
-다형성을 제공해주는 객체지향프로그래밍 언어들에서는 하위 클래스에서 상위 클래스의 메소드를 `오버라이드(override)` 해서 사용할 수 있습니다. `Swift`도 마찬가지로 그런 메서드들을 자주 마주하게되는데, 그런식으로 `override` 된 메서드들이 있으면 컴파일러는 어떤 구현부를 골라야될지 도대체 어떻게 아는걸까요 🤔
+다형성을 제공해주는 객체지향프로그래밍 언어들에서는 하위 클래스에서 상위 클래스의 메소드를 `오버라이드(override)` 해서 사용할 수 있습니다.
+`Swift`도 마찬가지로 그런 메서드들을 자주 마주하게되는데, 그런식으로 `override` 된 메서드들이 있으면 컴파일러는 어떤 구현부를 골라야될지 도대체 어떻게 아는걸까요 🤔
 
 이때 어떤 메서드가 호출되어야하는지 결정해주는 과정이 바로 `Method Dispatch`입니다.
 
@@ -25,7 +26,7 @@ last_modified_at: 2022-5-14
 
 [<WWDC 2016 Understanding Swift Performance 1부>](https://junbangg.github.io/wwdc/wwdc16-understanding-swift-performance-pt1/#method-dispatch) 에서 `Method Dispatch` 를 잠깐 다뤘어서 같이 정리를 했었는데, 그때 정리했던 글을 다시 보니까 이해 안되는 부분들이 많아서 따로 정리해보는게 좋을것 같았습니다.
 
-이번 포스트에서는 `Method Dispatch` 방법들을 비교해보고, 이후 포스트에서는 좀더 깊게 들어가보도록 하겠습니다.
+이번 포스트에서는 `Method Dispatch` 방법들을 개념적으로 비교해보겠습니다.
 
 # Method Dispatch의 종류
 
