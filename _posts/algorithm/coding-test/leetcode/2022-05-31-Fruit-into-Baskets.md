@@ -51,6 +51,7 @@ class Solution {
         var maxAmount = 0
         var left = 0
         var dictionary: [Int: Int] = [:]
+        var dictionaryCount = 0
         var fruitCount = 0
         
         for right in 0..<fruits.count {
