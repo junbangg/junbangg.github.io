@@ -173,7 +173,7 @@ exclude:
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
   # 잠시 숨기기
-  - _posts/algorith/coding-test/programmers
+  - _posts/algorithm/coding-test/programmers
   - _posts/algorithm/study
   - _posts/Git
   - _posts/algorithm/coding-test/leetcode/2021-12-28-reverse-linked-list.md
