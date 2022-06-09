@@ -15,7 +15,7 @@ last_modified_at: 2022-06-09
 
 # 구현한 기능
 
-![yogiyo-1](https://user-images.githubusercontent.com/33091784/172898980-9ba33862-b87b-4b84-97d4-0d1537e7c435.gif)
+![yogiyo-1](https://user-images.githubusercontent.com/33091784/172900969-a36297a5-1ca3-4d40-af87-ad3bd9ff21e7.gif)
 
 위와 같은 스크롤 기능을 구현 하기위한 방법을 고민해봤습니다.
 
@@ -43,7 +43,7 @@ last_modified_at: 2022-06-09
 
 사용자가 스크롤을 얼마나 했는지 판단하기 위해 다음과 같이 구현했습니다.
 
-![yogiyo-1](https://user-images.githubusercontent.com/33091784/172899739-6de35a4e-ed7e-44ad-87a1-c6fb91dbfa94.gif)
+![yogiyo-1](https://user-images.githubusercontent.com/33091784/172901031-13cc2542-6e54-475d-b2ea-6bb927f367c0.gif)
 <img width="450" alt="Screen Shot 2022-06-07 at 5 33 43 PM" src="https://user-images.githubusercontent.com/33091784/172899444-a9bd11d6-004f-49bc-84f6-c3fd3847df87.png">
 
 
