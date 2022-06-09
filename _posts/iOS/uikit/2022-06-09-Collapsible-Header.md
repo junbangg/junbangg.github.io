@@ -15,7 +15,7 @@ last_modified_at: 2022-06-09
 
 # 구현한 기능
 
-![yogiyo-1.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3f7277b8-78cd-4a5a-9c24-32927da1b6f5/yogiyo-1.gif)
+![yogiyo-1](https://user-images.githubusercontent.com/33091784/172898980-9ba33862-b87b-4b84-97d4-0d1537e7c435.gif)
 
 위와 같은 스크롤 기능을 구현 하기위한 방법을 고민해봤습니다.
 
@@ -34,7 +34,8 @@ last_modified_at: 2022-06-09
 
 [애플 공식문서](https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619392-scrollviewdidscroll)를 보면 
 
-![Screen Shot 2022-06-07 at 6.17.06 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bf39adf3-44dc-40fe-9d1d-28b7051b2eeb/Screen_Shot_2022-06-07_at_6.17.06_PM.png)
+![Screen Shot 2022-06-10 at 12 59 22 AM](https://user-images.githubusercontent.com/33091784/172899057-04139565-c5ec-45d6-8e93-4dcd56856e1f.png)
+
 
 `Tells the delegate when the user scrolls the content view within the receiver` 
 
@@ -42,9 +43,9 @@ last_modified_at: 2022-06-09
 
 사용자가 스크롤을 얼마나 했는지 판단하기 위해 다음과 같이 구현했습니다.
 
-![Screen_Shot_2022-06-04_at_8.45.40_PM-removebg-preview.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/25044497-3c09-406a-bba9-138ec4546c0d/Screen_Shot_2022-06-04_at_8.45.40_PM-removebg-preview.png)
+![yogiyo-2](https://user-images.githubusercontent.com/33091784/172899245-2ba05963-de39-4744-8097-b20920c9f184.gif)
+<img width="376" alt="Screen Shot 2022-06-07 at 5 33 43 PM" src="https://user-images.githubusercontent.com/33091784/172899444-a9bd11d6-004f-49bc-84f6-c3fd3847df87.png">
 
-![Screen Shot 2022-06-07 at 5.33.43 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/54a71425-699b-4ba3-bf00-f249cc88ccec/Screen_Shot_2022-06-07_at_5.33.43_PM.png)
 
 `scrollViewDidScroll` 를 이용해서 사용자가 얼만큼 스크롤을 했는지 알아내서, 그만큼 `header` 의 `constraint` 에 적용을 하는 방법으로 구현했습니다.
 
