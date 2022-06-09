@@ -1,3 +1,18 @@
+---
+title: "Collapsible Header 구현기"
+
+categories:
+  - uikit
+tags:
+  - [iOS, uikit]
+
+toc: true
+toc_sticky: true
+
+date: 2022-06-09
+last_modified_at: 2022-06-09
+---
+
 # 구현한 기능
 
 ![yogiyo-1.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3f7277b8-78cd-4a5a-9c24-32927da1b6f5/yogiyo-1.gif)
