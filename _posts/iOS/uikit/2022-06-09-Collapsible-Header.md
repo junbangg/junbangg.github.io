@@ -43,8 +43,8 @@ last_modified_at: 2022-06-09
 
 사용자가 스크롤을 얼마나 했는지 판단하기 위해 다음과 같이 구현했습니다.
 
-![yogiyo-2](https://user-images.githubusercontent.com/33091784/172899245-2ba05963-de39-4744-8097-b20920c9f184.gif)
-<img width="376" alt="Screen Shot 2022-06-07 at 5 33 43 PM" src="https://user-images.githubusercontent.com/33091784/172899444-a9bd11d6-004f-49bc-84f6-c3fd3847df87.png">
+![yogiyo-1](https://user-images.githubusercontent.com/33091784/172899739-6de35a4e-ed7e-44ad-87a1-c6fb91dbfa94.gif)
+<img width="450" alt="Screen Shot 2022-06-07 at 5 33 43 PM" src="https://user-images.githubusercontent.com/33091784/172899444-a9bd11d6-004f-49bc-84f6-c3fd3847df87.png">
 
 
 `scrollViewDidScroll` 를 이용해서 사용자가 얼만큼 스크롤을 했는지 알아내서, 그만큼 `header` 의 `constraint` 에 적용을 하는 방법으로 구현했습니다.
@@ -53,13 +53,13 @@ last_modified_at: 2022-06-09
 
 스크롤이 어느 방향으로 얼만큼 됐는지는 `contentOffset` 이라는 `scrollView` 프로퍼티를 이용하면 됩니다.
 
-![Screen Shot 2022-06-10 at 12.59.22 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/41b4dbf8-fea6-47cf-80a8-3986a6b25e59/Screen_Shot_2022-06-10_at_12.59.22_AM.png)
+![Screen Shot 2022-06-10 at 12 59 22 AM](https://user-images.githubusercontent.com/33091784/172900034-700f13c2-1e7b-45d4-9bed-23b8a245d405.png)
 
 `contentOffset` 이란 `scrollView` 의 `contentView` `frame` 과의 상대적인 위치입니다.
 
 그림으로 표현하면 다음과 같습니다.
 
-![Screen Shot 2022-06-10 at 1.09.03 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/957d12df-7000-4e5b-9b01-6063efda8d7c/Screen_Shot_2022-06-10_at_1.09.03_AM.png)
+<img width="574" alt="Screen Shot 2022-06-10 at 1 09 03 AM" src="https://user-images.githubusercontent.com/33091784/172900083-4199631b-96bd-48fd-9587-f4b5b21d0624.png">
 
 [https://stackoverflow.com/a/39062209](https://stackoverflow.com/a/39062209) 참고
 
@@ -69,7 +69,8 @@ last_modified_at: 2022-06-09
 
 `contentOffset` 의 스크롤이 위로 됐는지, 또는 아래로 됐는지, 그리고 얼만큼 스크롤이 됐는지를 판별했으면, 그에 따른 `UI` 변경을 수행하는 로직은 다음과 같습니다.
 
-![Screen Shot 2022-06-10 at 12.26.30 AM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/05b137e6-7e6a-4d80-aa50-ee77f7d0ca86/Screen_Shot_2022-06-10_at_12.26.30_AM.png)
+<img width="466" alt="Screen Shot 2022-06-10 at 12 26 30 AM" src="https://user-images.githubusercontent.com/33091784/172900334-a5421410-d091-41c4-b28d-078fbf077148.png">
+
 
 `scrollView.contentOffset.y` 에 따라서 스크롤이 위로 갔는지 아래로 갔는지 판단할 수 있는데
 
@@ -79,7 +80,7 @@ last_modified_at: 2022-06-09
     - 이때 `header` 의 `alpha` 값을 이용해서 뷰를 투명하게 변경시킵니다.
     - 변경하지않으면 다음과 같은 부자연스러운 현상이 일어납니다.
 
-[사진]
+<img width="348" alt="Screen Shot 2022-06-10 at 1 27 57 AM" src="https://user-images.githubusercontent.com/33091784/172900390-d8dbb160-e030-4dfb-9c7d-357c4fd218c8.png">
 
 ### `shouldSnapUp` 일때는 다음 두가지 일이 일어나는데
 
@@ -104,11 +105,12 @@ last_modified_at: 2022-06-09
 
 `UIViewPropertyAnimator.runningPropertyAnimator` 를 사용하여 한번에 해결했습니다.
 
-[사진]
+![Screen Shot 2022-06-10 at 1 28 10 AM](https://user-images.githubusercontent.com/33091784/172900439-19f8d51d-62e9-4247-a968-93fb7375838d.png)
 
 `UIViewPropertyAnimator` 는 뷰에 변경사항을 애니메이션과 함께 적용시킬 수 있고, 애니메이션에게 동적으로 변경사항을 줄 수 있는 클래스이며 
 
-[사진]
+![Screen Shot 2022-06-10 at 1 45 59 AM](https://user-images.githubusercontent.com/33091784/172900605-20813877-eecd-4c41-a585-ecfd5a9d9cab.png)
+
 
 `runningPropertyAnimator` 는 애니메이션을 바로 수행시키는 클래스를 리턴하는 메서드입니다.
 
