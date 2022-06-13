@@ -15,7 +15,7 @@ last_modified_at: 2022-06-13
 
 ## 🧞‍♂️ 난이도 
 
-> LV3
+> Medium
 
 <br>
 
