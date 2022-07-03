@@ -34,7 +34,7 @@ last_modified_at: 2022-06-09
 
 [애플 공식문서](https://developer.apple.com/documentation/uikit/uiscrollviewdelegate/1619392-scrollviewdidscroll)를 보면 
 
-![Screen Shot 2022-06-10 at 12 59 22 AM](https://user-images.githubusercontent.com/33091784/172899057-04139565-c5ec-45d6-8e93-4dcd56856e1f.png)
+![Screen Shot 2022-07-04 at 1 30 08 AM](https://user-images.githubusercontent.com/33091784/177048714-5a282ba1-2772-4370-bfd9-7390bc3d0aba.png)
 
 
 `Tells the delegate when the user scrolls the content view within the receiver` 
