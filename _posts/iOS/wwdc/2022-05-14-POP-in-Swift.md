@@ -37,8 +37,8 @@ last_modified_at: 2022-05-14
 1. **Implicit Sharing**
     - A와 B 가 공유하는 데이터의 변경이 초래할 수 있는 문제점들( **임계영역** 문제)
     - 이러면  해결하기위해 **Lock** 같은 방법을 사용하는데, 그러면 코드가 점점 비효율적으로 변함
-
-![Screen Shot 2021-11-13 at 5.20.40 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/383a6dd6-9603-4837-b4cf-96e94a94887f/Screen_Shot_2021-11-13_at_5.20.40_PM.png)
+    - 
+<img width="693" alt="Screen Shot 2022-07-06 at 11 11 07 PM" src="https://user-images.githubusercontent.com/33091784/177570492-46cb549f-48ed-46f5-a9af-2a682f049b23.png">
 
 - **이래서 스위프트의 Collection 타입들은 전부 값 타입이다**
 - "The one you're iterating and the one you're modifying are distinct"
@@ -176,7 +176,7 @@ func binarySearch<T: Ordered>(sortedKeys: [T], forKey k: T) -> Int {
 
 "homogeneous array" 를 받도록 한것이다. (`Ordered` 를 채택하는 다양한 타입으로 구성된 array)
 
-![Screen Shot 2021-11-13 at 5.59.28 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3564d9e7-407c-4fb3-8b99-8bf9138b3ade/Screen_Shot_2021-11-13_at_5.59.28_PM.png)
+<img width="703" alt="Screen Shot 2022-07-06 at 11 11 42 PM" src="https://user-images.githubusercontent.com/33091784/177570633-a392f763-02bc-4bba-afa3-ba599a9cc3ec.png">
 
 - dynamic dispatch vs static dispatch 는 polymorphism 이야기이다.
 
