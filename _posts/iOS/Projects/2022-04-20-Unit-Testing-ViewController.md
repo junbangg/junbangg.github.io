@@ -14,11 +14,11 @@ last_modified_at: 2022-04-20
 ---
 # 뷰 컨트롤러 테스트하는 방법
 
-오늘은 `ViewController` 를 테스트하기 위한 여러가지 방법 중 **단위 테스트** 를 알아보고 직접 프로젝트에 적용해본 경험을 기록해보려고합니다.
+오늘은 `MVC` 에서 `ViewController` 를 테스트하기 위한 여러가지 방법 중 **단위 테스트** 를 알아보고 직접 프로젝트에 적용해본 경험을 기록해보려고합니다.
 
 `View` 를 테스트하기 위한 방법으로 `Snapshot` 테스트를 활용한 `UI 테스트` 도 있지만,
 
-본 포스팅에서는 `단위 테스트` 가 뭔지, 그리고 `단위 테스트` 로 테스트할만한 이유들 부터 한 번 정리해보겠습니다.
+본 포스팅에서는 `단위 테스트` 가 뭔지, 그리고 `View`를 `단위 테스트` 로 테스트할만한 이유들 부터 한 번 정리해보겠습니다.
 
 ## Unit Test란?
 
@@ -119,7 +119,7 @@ struct CalculatorUIPresentation {
 `DCAResult` 를 이용해서 `CalculatorUIPresentation` 인스턴스를 만들어서 반환하는 메서드
 
 ```swift
-func getPresentation(result: DCAResult) -> CalculatorUIPresentation
+func getPresentation(from result: DCAResult) -> CalculatorUIPresentation
 ```
 
 ## 근데 그래서 테스트를 어떻게 할까?! 🤔
@@ -177,13 +177,13 @@ extension DCAServicable {
 
 ```swift
 protocol CalculatorUIPresentable {
-    func getPresentation(result: DCAResult) -> CalculatorUIPresentation
+    func getPresentation(from result: DCAResult) -> CalculatorUIPresentation
 }
 
 // MARK: - CalculatorUIPresentable Methods
 
 extension CalculatorUIPresentable {
-    func getPresentation(result: DCAResult) -> CalculatorUIPresentation {
+    func getPresentation(from result: DCAResult) -> CalculatorUIPresentation {
 			// 구현부
     }
 }
@@ -212,6 +212,13 @@ extension CalculatorTableViewController: DCAServicable {}
 ### `DCAServicable` 테스트
 
 `MockDCAService` 구조체를 하나 만들어놓고 `DCAServicable` 프로토콜을 뷰컨트롤러한테 했듯이 달아놓으면 됩니다.
+이렇게 프로토콜을 채택 시켜놓고 테스트를 하면 다음과 같은 이점들이 있습니다.
+
+1. 실제 코드를 테스트할 수 있다.
+2. 실제 코드를 건들지 않으면서 유연한 테스트 코드를 작성할 수 있다. 
+    - 간혹 테스트를 하다보면 실제 코드에는 필요 없는데 테스트 코드에는 필요한 코드가 생길 수 있다. 이때, 테스트에 필요한 추가적인 로직들을  `Mock` 에 추가해서 사용하면 된다. 그러면 실제 코드는 영향을 받지않으니까 👍
+
+다음과 같이 테스트 대상이 될 `DCAServicable` 을 `Mock` 한테 채택 시켜서 테스트를 진행하면 됩니다.
 
 ```swift
 import Foundation
@@ -267,6 +274,7 @@ final class CalculatorPresenterTests: XCTestCase {
 		//즐테 :)
 }
 ```
+
 
 # 마무리
 
