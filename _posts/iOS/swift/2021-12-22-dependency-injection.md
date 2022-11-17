@@ -189,15 +189,15 @@ class 조립식PC {
 
 ```swift
 protocol Processor {
-	let controlUnit: ControlUnit
-	let alu: ALU
-	let transistor: Transistor
+	var controlUnit: ControlUnit
+	var alu: ALU
+	var transistor: Transistor
 }
 
 struct M1: Processor {
-	let controlUnit: ControlUnit
-	let alu: ALU
-	let transistor: Transistor
+	var controlUnit: ControlUnit
+	var alu: ALU
+	var transistor: Transistor
 }
 ```
 
