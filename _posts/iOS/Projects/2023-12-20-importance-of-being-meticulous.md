@@ -6,7 +6,7 @@ categories:
 
 - Projects
 tags:
-- [Journal]
+- [Projects]
 
 toc: true
 toc_sticky: true
