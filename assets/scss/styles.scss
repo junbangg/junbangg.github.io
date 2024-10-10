@@ -303,31 +303,28 @@ img{
         z-index: var(--z-back);
     }
     &__ios{
-        width: 50%;
-    }
-    &__python{
-        width: 50%;
-    }
-    &__R{
-      width: 25%;
+        width: 80%;
     }
     &__uikit{
-        width: 30%;
+        width: 80%;
     }
     &__swiftui{
-      width: 20%;
+        width: 50%;
     }
-    &__CSS{
-      width: 7%;
+    &__reactive{
+        width: 50%;
     }
-    &__c{
-        width: 10%;
+    &__clean{
+        width: 50%;
     }
-    &__processing{
-      width: 5kj0%;
+    &__tca{
+        width: 50%;
     }
-    &__sql{
-      width: 20%;
+    &__testing{
+        width: 70%;
+    }
+    &__modular{
+        width: 30%;
     }
     &__img{
         border-radius: .5rem;

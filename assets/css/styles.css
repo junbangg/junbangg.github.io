@@ -308,30 +308,27 @@ img{
   z-index: var(--z-back);
 }
 .skills__ios{
-  width: 50%;
-}
-.skills__python{
-  width: 50%;
-}
-.skills__R{
-  width: 30%;
+  width: 80%;
 }
 .skills__uikit{
-  width: 30%;
+  width: 80%;
 }
 .skills__swiftui{
-  width: 20%;
+  width: 50%;
 }
-.skills__CSS{
-  width: 10%;
+.skills__reactive{
+  width: 50%;
 }
-.skills__c{
-  width: 10%;
+.skills__clean{
+  width: 50%;
 }
-.skills__sql{
-  width: 20%;
+.skills__tca{
+  width: 50%;
 }
-.skills__processing{
+.skills__testing{
+  width: 70%;
+}
+.skills__modular{
   width: 30%;
 }
 .skills__img{
