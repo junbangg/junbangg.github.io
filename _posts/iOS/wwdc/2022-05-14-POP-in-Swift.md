@@ -106,7 +106,7 @@ last_modified_at: 2022-05-14
 
 - 포토코콜 메서드는 body가 있으면 안된다고 오류가 발생한다.
     
-    "Which is actually pretty good, because it means that we're going to trade that dynamic runtime check (클래스는 힙영역에 저장되므로 런타임때 결정된다) for a static check, that precedes as implemented"
+    "Which is actually pretty good, because it means that we're going to trade that dynamic runtime check for a static check, that precedes as implemented"
     
 - 코드는 아래와 같이 바뀐다.
 
